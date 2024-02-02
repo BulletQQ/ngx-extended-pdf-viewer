@@ -1,5 +1,5 @@
 #!/bin/sh
-cd ../mypdf.js
+cd ../pdf.js
 
 rm -rf build
 
@@ -34,16 +34,16 @@ cd ../ngx-extended-pdf-viewer
 
 rm -R ./projects/ngx-extended-pdf-viewer/$FOLDER/pdf*.mjs
 rm -R ./projects/ngx-extended-pdf-viewer/$FOLDER/viewer*.mjs
-cp -R ../mypdf.js/build/minified/web/locale/* ./projects/ngx-extended-pdf-viewer/$FOLDER/locale/
-cp -R ../mypdf.js/build/minified/web/cmaps/* ./projects/ngx-extended-pdf-viewer/$FOLDER/cmaps/
+cp -R ../pdf.js/build/minified/web/locale/* ./projects/ngx-extended-pdf-viewer/$FOLDER/locale/
+cp -R ../pdf.js/build/minified/web/cmaps/* ./projects/ngx-extended-pdf-viewer/$FOLDER/cmaps/
 
-cp -R "../mypdf.js/build/minified/web/standard_fonts" ./projects/ngx-extended-pdf-viewer/$FOLDER
+cp -R "../pdf.js/build/minified/web/standard_fonts" ./projects/ngx-extended-pdf-viewer/$FOLDER
 
-cp -R ../mypdf.js/build/minified/build/pdf.* ./projects/ngx-extended-pdf-viewer/$FOLDER/
-cp -R ../mypdf.js/build/minified/web/viewer.* ./projects/ngx-extended-pdf-viewer/$FOLDER/
-cp -R ../mypdf.js/build/minified/web/viewer.min* ./projects/ngx-extended-pdf-viewer/$FOLDER/
-cp -R ../mypdf.js/build/minified-legacy/build/pdf* ./projects/ngx-extended-pdf-viewer/$FOLDER/
-cp -R ../mypdf.js/build/minified-legacy/web/viewer-* ./projects/ngx-extended-pdf-viewer/$FOLDER/
+cp -R ../pdf.js/build/minified/build/pdf.* ./projects/ngx-extended-pdf-viewer/$FOLDER/
+cp -R ../pdf.js/build/minified/web/viewer.* ./projects/ngx-extended-pdf-viewer/$FOLDER/
+cp -R ../pdf.js/build/minified/web/viewer.min* ./projects/ngx-extended-pdf-viewer/$FOLDER/
+cp -R ../pdf.js/build/minified-legacy/build/pdf* ./projects/ngx-extended-pdf-viewer/$FOLDER/
+cp -R ../pdf.js/build/minified-legacy/web/viewer-* ./projects/ngx-extended-pdf-viewer/$FOLDER/
 rm -R ./projects/ngx-extended-pdf-viewer/$FOLDER/*.d.mts
 
 cd addBaseLanguages
@@ -59,9 +59,10 @@ cd ..
 if [ $BRANCH != "bleeding-edge" ]
 then
   echo "Generating types"
-  cd ../mypdf.js
+  cd ../pdf.js
   gulp types
   cd ../ngx-extended-pdf-viewer
-  cp -r ../mypdf.js/build/types/ ./projects/ngx-extended-pdf-viewer/types
+  cp -r ../pdf.js/build/types/ ./projects/ngx-extended-pdf-viewer/types
 fi
 
+read -p "Нажмите Enter для завершения..."
